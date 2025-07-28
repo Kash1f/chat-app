@@ -2,7 +2,7 @@ import express from 'express';
 import "dotenv/config";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
-import chatRoutes from "./routes/chatRoutes.js";
+
 
 import { connectDB } from "./lib/db.js"
 
@@ -14,7 +14,7 @@ app.use(cors());
 
 //mounts the authRoutes
 app.use("/api/auth", authRoutes);
-app.use("/api/chat", chatRoutes);
+
 
 
 app.listen(PORT, () => {
