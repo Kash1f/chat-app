@@ -105,7 +105,7 @@ Authorization: Bearer JWT_TOKEN
 - Automatically marks user as online
 
 ### `sendMessage`
-Send a new message.
+Send a new message using Socket.io in Postman
 
 **Data:**
 ```json
@@ -123,9 +123,9 @@ Receive a new message in real-time.
 ## Setup Instructions
 
 ### Prerequisites
-- Node.js (v16+)
-- MongoDB (v5+)
-- npm (v8+)
+- Node.js
+- MongoDB
+- npm
 
 ### Installation
 1. Clone the repository
@@ -145,7 +145,7 @@ Receive a new message in real-time.
    ```
 
 ## Testing
-Run the included test script:
+Run the included test script, useful for testing the sending and receiving of messages.
 ```bash
 node scripts/socketTest.js
 ```
