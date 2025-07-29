@@ -30,7 +30,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/users', userRoutes);
 
-//socket.IO setup - pass the function as a callback, don't call it
 console.log('Setting up Socket.IO authentication and connection handler...');
 io.use(authenticateSocket);
 io.on('connection', (socket) => handleSocketConnection(socket, io));

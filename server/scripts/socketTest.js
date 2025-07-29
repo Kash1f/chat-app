@@ -2,10 +2,10 @@ import { io } from "socket.io-client";
 import dotenv from "dotenv";
 dotenv.config();
 
-const token = "";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODdkNWUwNDI4YzgxM2JhYTVjZTAyMyIsImlhdCI6MTc1Mzc3MjE5MiwiZXhwIjoxNzU1MDY4MTkyfQ.fSD5JFzz5QHHec1o96mncXmUSeOEcI5iEofJ1pOTDf4";
 const receiverId = "6887a93812160e82da9fe1f3"; //user ID of the receiver
 
-console.log("[1] Connecting to Socket.IO...");
+console.log("1. Connecting to Socket.IO...");
 const socket = io("http://localhost:5000", {
   auth: { token }, //primary method
   query: { token }, //fallback method
@@ -21,8 +21,8 @@ socket.onAny((event, ...args) => {
 
 //connection events
 socket.on("connect", () => {
-  console.log("2 Connected! Socket ID:", socket.id);
-  console.log("2 Sending test message...");
+  console.log("2. Connected! Socket ID:", socket.id);
+  console.log("2. Sending test message...");
   socket.emit("sendMessage", {
     receiverId,
     message: "Test from backend script 4"
@@ -31,7 +31,7 @@ socket.on("connect", () => {
 
 //message events
 socket.on("receiveMessage", (msg) => {
-  console.log("3 Message received:", msg);
+  console.log("3. Message received:", msg);
 });
 
 //error handling
