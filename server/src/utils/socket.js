@@ -2,8 +2,8 @@ import Chat from '../models/Chat.js';
 import User from '../models/User.js';
 
 const handleSocketConnection = (socket, io) => {
-  console.log(`✅ User ${socket.userId} connected`);
-  console.log(`✅ User object:`, socket.user ? `${socket.user._id} (${socket.user.role})` : 'No user object');
+  console.log(`User ${socket.userId} connected`);
+  console.log(`User object:`, socket.user ? `${socket.user._id} (${socket.user.role})` : 'No user object');
   
   //mark user as online
   User.findByIdAndUpdate(socket.userId, { isOnline: true }).catch(console.error);

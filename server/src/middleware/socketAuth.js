@@ -3,10 +3,11 @@ import User from "../models/User.js";
 
 const socketAuth = async (socket, next) => {
   try {
+    const authHeader = socket.handshake?.headers?.authorization;
     const token =
       socket.handshake?.auth?.token ||
       socket.handshake?.query?.token ||
-      socket.handshake?.headers?.authorization?.replace("Bearer ", "");
+      (authHeader && authHeader.startsWith("Bearer ") ? authHeader.replace("Bearer ", "") : null);
 
     if (!token) {
       return next(new Error("Authentication failed: No token provided"));
